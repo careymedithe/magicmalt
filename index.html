@@ -9,6 +9,168 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <!-- Flipkart availability section: scoped styles to preserve the current website design -->
+  <style>
+    .flipkart-availability {
+      padding: 62px 0 70px;
+      background: #fffdf8;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .flipkart-availability, .flipkart-availability * { box-sizing: border-box; }
+    .flipkart-availability .flipkart-panel {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
+      align-items: center;
+      gap: clamp(26px, 4.5vw, 70px);
+      overflow: hidden;
+      border: 1px solid #e1e6d2;
+      border-radius: 26px;
+      padding: clamp(28px, 4.5vw, 65px);
+      background: linear-gradient(118deg, #eff4e9 0%, #f8f6ea 63%, #fcf0d9 100%);
+      box-shadow: 0 20px 65px rgba(47, 73, 33, .065);
+    }
+    .flipkart-availability .flipkart-panel::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      right: -130px;
+      top: -155px;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(164, 151, 83, .20);
+      border-radius: 50%;
+      box-shadow: 0 0 0 65px rgba(255,255,255,.14), 0 0 0 145px rgba(255,255,255,.08);
+      pointer-events: none;
+    }
+    .flipkart-availability .flipkart-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #4b7a42;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .flipkart-availability .flipkart-kicker::before {
+      content: '';
+      width: 19px;
+      height: 2px;
+      background: #d6a24c;
+      border-radius: 8px;
+    }
+    .flipkart-availability h2 {
+      max-width: 670px;
+      margin: 0 0 20px;
+      color: #253d2b;
+      font: 700 clamp(29px, 3.5vw, 47px)/1.18 'Playfair Display', Georgia, serif;
+      letter-spacing: -.025em;
+    }
+    .flipkart-availability h2 em { color: #54804b; font-style: normal; }
+    .flipkart-availability .flipkart-description {
+      max-width: 530px;
+      margin: 0 0 27px;
+      color: #526254;
+      font-size: clamp(15px, 1.3vw, 17px);
+      line-height: 1.75;
+    }
+    .flipkart-availability .flipkart-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 52px;
+      padding: 13px 23px;
+      border: 1px solid #416c39;
+      border-radius: 8px;
+      background: #416c39;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .flipkart-availability .flipkart-cta:hover,
+    .flipkart-availability .flipkart-cta:focus-visible {
+      background: #2e512a;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .flipkart-availability .flipkart-cta:focus-visible { outline: 3px solid #d6a24c; outline-offset: 3px; }
+    .flipkart-availability .flipkart-disclaimer {
+      margin: 13px 0 0;
+      color: #70796c;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .flipkart-availability .flipkart-visual { display: flex; justify-content: center; }
+    .flipkart-availability .flipkart-logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 330px;
+      min-height: 234px;
+      padding: 24px 26px;
+      border: 1px solid #e9e8e0;
+      border-radius: 19px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 18px 38px rgba(41, 52, 30, .11);
+      text-align: center;
+    }
+    .flipkart-availability .flipkart-logo-card > span:first-child {
+      color: #7b8474;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .17em;
+    }
+    .flipkart-availability .flipkart-logo-card img {
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      height: 148px;
+      margin: -10px 0 -8px;
+      object-fit: contain;
+    }
+    .flipkart-availability .flipkart-product-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 13px;
+      border-radius: 30px;
+      background: #f0f5eb;
+      color: #557648;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .flipkart-availability .flipkart-product-tag::before { content: '✓'; font-size: 14px; }
+    .flipkart-footer-link { margin-top: 10px !important; font-size: 13px; }
+    .flipkart-footer-link a { font-weight: 700; }
+    @media (max-width: 760px) {
+      .flipkart-availability { padding: 36px 0 48px; }
+      .flipkart-availability .flipkart-panel {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 29px 23px;
+        border-radius: 18px;
+      }
+      .flipkart-availability h2 { font-size: clamp(27px, 7vw, 36px); }
+      .flipkart-availability .flipkart-visual { justify-content: flex-start; }
+      .flipkart-availability .flipkart-logo-card { max-width: 100%; min-height: 192px; }
+      .flipkart-availability .flipkart-logo-card img { height: 114px; max-width: 220px; }
+      .flipkart-availability .flipkart-cta { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flipkart-availability .flipkart-cta { transition: none; }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -18,7 +180,7 @@
       <div class="promo-badge">Limited-time offer</div>
       <p class="promo-season">Website Exclusive Offer</p>
       <h2 id="promoTitle">50% OFF</h2>
-      <p class="promo-validity">Valid until August 30, 2026</p>
+      <p class="promo-validity">Website-exclusive savings • Terms apply</p>
 
       <div class="promo-code-wrap">
         <span>Use code</span>
@@ -88,6 +250,7 @@
         </div>
       </div>
     </section>
+
 
     <section class="manifesto" id="why">
       <div class="container manifesto-grid">
@@ -186,6 +349,30 @@
       </div>
     </section>
 
+    <!-- Flipkart announcement: placed directly below the Packs section -->
+    <section class="flipkart-availability" id="flipkart" aria-labelledby="flipkart-heading">
+      <div class="container">
+        <div class="flipkart-panel">
+          <div class="flipkart-content">
+            <p class="flipkart-kicker">More ways to shop</p>
+            <h2 id="flipkart-heading">Magic Malt™ is now available on <em>Flipkart!</em></h2>
+            <p class="flipkart-description">Your everyday millet nutrition, now easier to shop for. Explore Milletarian® Magic Malt™ on Flipkart at your convenience.</p>
+            <a class="flipkart-cta" href="https://www.flipkart.com/milletarian-chocolate-finger-millet-ragi-malt-powder-rich-calcium-iron-high-fibre/p/itm959a62d1c17f6" target="_blank" rel="noopener noreferrer" aria-label="Shop Milletarian Magic Malt Chocolate on Flipkart (opens in a new tab)">
+              Shop on Flipkart <span aria-hidden="true">↗</span>
+            </a>
+            <p class="flipkart-disclaimer">This link opens our Chocolate Magic Malt™ listing. Flipkart prices and offers may differ from website promotions.</p>
+          </div>
+          <div class="flipkart-visual">
+            <div class="flipkart-logo-card">
+              <span>NOW AVAILABLE ON</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Flipkart_logo_%282026%29.svg" alt="Flipkart logo" loading="lazy" width="260" height="148" />
+              <span class="flipkart-product-tag">Milletarian® Magic Malt™</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="audience section-pad">
       <div class="container"><div class="section-heading center"><p class="eyebrow">A healthy choice for everyone</p><h2>Who is Magic Malt™ for?</h2></div><div class="pill-grid"><span>Families & Kids</span><span>Busy Professionals</span><span>Fitness Lovers</span><span>Health Enthusiasts</span><span>Elders</span><span>Everyone choosing better nutrition</span></div></div>
     </section>
@@ -248,7 +435,7 @@
   </main>
 
   <footer>
-    <div class="container footer-grid"><div class="footer-brand"><a class="brand" href="#top"><img src="assets/logo.png" alt="Milletarian" /><span>Milletarian<sup>®</sup></span></a><p>Milletarian® presents Magic Malt™ — finger millet nutrition, simplified.</p></div><div><h4>Contact</h4><a href="tel:+917093082627">+91 70930 82627</a><a href="mailto:hello@milletarian.fit">hello@milletarian.fit</a><span>9:00–18:00</span></div><div><h4>Registered Office</h4><p>Gandhi Nagar-1, Narsapur,<br>West Godavari, Andhra Pradesh 534275</p></div><div><h4>R&D & Manufacturing</h4><p>Abids, Hyderabad,<br>Telangana</p></div></div>
+    <div class="container footer-grid"><div class="footer-brand"><a class="brand" href="#top"><img src="assets/logo.png" alt="Milletarian" /><span>Milletarian<sup>®</sup></span></a><p>Milletarian® presents Magic Malt™ — finger millet nutrition, simplified.</p><p class="flipkart-footer-link">Also available on <a href="https://www.flipkart.com/milletarian-chocolate-finger-millet-ragi-malt-powder-rich-calcium-iron-high-fibre/p/itm959a62d1c17f6" target="_blank" rel="noopener noreferrer">Flipkart ↗</a></p></div><div><h4>Contact</h4><a href="tel:+917093082627">+91 70930 82627</a><a href="mailto:hello@milletarian.fit">hello@milletarian.fit</a><span>9:00–18:00</span></div><div><h4>Registered Office</h4><p>Gandhi Nagar-1, Narsapur,<br>West Godavari, Andhra Pradesh 534275</p></div><div><h4>R&D & Manufacturing</h4><p>Abids, Hyderabad,<br>Telangana</p></div></div>
     <div class="container footer-bottom"><span>© 2026 Milletarian®. Magic Malt™ is a product of Milletarian®.</span><span>Nutrition simplified.</span></div>
   </footer>
   <a class="mobile-order" href="https://api.whatsapp.com/send?phone=917093082627&text=Hi%2C%20I%20would%20like%20to%20order%20Magic%20Malt" target="_blank" rel="noopener">Order Magic Malt</a>
